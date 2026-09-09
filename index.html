@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loggy | Tu diario cultural de películas, series y libros</title>
+  
+  <!-- Meta SEO -->
+  <meta name="description" content="Todo lo que ves y lees en una sola app. Calificaciones con media estrella, seguimiento de capítulos y páginas, biblioteca con amigos, detector de spoilers y retos anuales. Únete a la lista de espera.">
+  <meta name="keywords" content="Loggy, películas, series, libros, Letterboxd, TV Time, Goodreads, diario cultural, lista de espera, ver juntos, ruleta">
+  <meta name="author" content="Loggy">
+  
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://loggy.app/">
+  <meta property="og:title" content="Loggy — El diario cultural para cinéfilos, seriéfilos y lectores">
+  <meta property="og:description" content="Películas, series y libros en una sola aplicación. Regístrate en la lista de espera y sé de los primeros en probarla.">
+  <meta property="og:image" content="logo_app.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Loggy — Tu diario cultural definitivo">
+  <meta property="twitter:description" content="Combina lo mejor de Letterboxd, TV Time y Goodreads en una experiencia ultra fluida.">
+  <meta property="twitter:image" content="logo_app.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            dark: {
+              950: '#09090C',
+              900: '#0F0F13',
+              850: '#15151B',
+              800: '#1C1C24',
+              700: '#282834',
+              600: '#383848',
+            },
+            lime: {
+              brand: '#E2F163',
+              hover: '#D4E54D',
+              dim: '#B5C43C'
+            },
+            brand: {
+              movie: '#EF4444',
+              series: '#3B82F6',
+              book: '#F59E0B'
+            }
+          },
+          boxShadow: {
+            'glow-lime': '0 0 35px -5px rgba(226, 241, 99, 0.25)',
+            'glow-card': '0 10px 40px -10px rgba(0, 0, 0, 0.6)',
+            'phone': '0 25px 70px -15px rgba(0, 0, 0, 0.8), 0 0 40px -10px rgba(226, 241, 99, 0.12)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #09090C;
+      color: #E2E8F0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #09090C;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #282834;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #383848;
+    }
+
+    /* Hide scrollbar for gallery on touch devices */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.05); }
+    }
+    .ambient-glow {
+      animation: pulseGlow 8s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-dark-950 text-slate-200 antialiased selection:bg-lime-brand selection:text-dark-950">
+
+  <!-- Ambient background glow elements -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="ambient-glow absolute top-[-10%] left-[20%] w-[550px] h-[550px] rounded-full bg-gradient-to-br from-lime-brand/10 to-transparent blur-[120px]"></div>
+    <div class="ambient-glow absolute top-[40%] right-[-10%] w-[600px] h-[600px] rounded-full bg-gradient-to-bl from-blue-600/10 to-transparent blur-[140px]" style="animation-delay: 3s;"></div>
+    <div class="ambient-glow absolute bottom-[-10%] left-[10%] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-amber-500/10 to-transparent blur-[130px]" style="animation-delay: 5s;"></div>
+  </div>
+
+  <div class="relative z-10 flex flex-col min-h-screen">
+    
+    <!-- HEADER / NAVIGATION -->
+    <header class="w-full border-b border-dark-800/80 backdrop-blur-md bg-dark-950/70 sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 py-3 flex items-center justify-between">
+        <!-- Brand Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <img src="logo_app.png" alt="Loggy Icon" class="w-9 h-9 rounded-xl shadow-md transition-transform group-hover:scale-105 border border-white/10">
+          <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1.5">
+            Loggy
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md bg-lime-brand/15 text-lime-brand border border-lime-brand/30">
+              Beta
+            </span>
+          </span>
+        </a>
+
+        <!-- Quick CTA -->
+        <div class="flex items-center gap-3">
+          <div class="hidden md:flex items-center gap-2 text-xs font-medium text-slate-400 bg-dark-850 px-3 py-1.5 rounded-full border border-dark-700">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Revisión en Google Play
+          </div>
+          <a href="#waitlist-section" class="px-4 py-2 rounded-xl bg-lime-brand text-dark-950 text-sm font-bold shadow-glow-lime hover:bg-lime-hover transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0">
+            Unirme a la lista
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow">
+      
+      <!-- HERO SECTION -->
+      <section class="relative pt-12 pb-16 md:pt-20 md:pb-24 px-4 sm:px-6 max-w-6xl mx-auto text-center">
+        <!-- Live status badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-dark-850/90 border border-dark-700 text-xs font-semibold text-slate-300 mb-8 backdrop-blur-sm shadow-sm">
+          <span class="flex h-2 w-2 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-brand opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-lime-brand"></span>
+          </span>
+          <span>Próximamente en Android e iOS · Lista de espera abierta</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.12] mb-6">
+          Tu diario cultural definitivo.<br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-brand via-lime-200 to-white">
+            Películas, series y libros
+          </span>
+          en una sola app.
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+          Olvida tener tres apps distintas. Registra lo que ves y lees con media estrella, cruza pendientes con amigos con la ruleta de 30 segundos y mantén tus estadísticas sincronizadas.
+        </p>
+
+        <!-- HERO WAITLIST FORM -->
+        <div id="waitlist-section" class="max-w-lg mx-auto mb-6 scroll-mt-28">
+          <form id="hero-waitlist-form" class="relative flex flex-col sm:flex-row gap-2.5 p-2 rounded-2xl bg-dark-850/90 border border-dark-700 shadow-glow-card backdrop-blur-md">
+            <div class="relative flex-grow">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <input 
+                type="email" 
+                name="email" 
+                required 
+                placeholder="Introduce tu correo electrónico..." 
+                class="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-900/90 border border-dark-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-lime-brand focus:ring-1 focus:ring-lime-brand transition-all"
+              >
+            </div>
+            <button 
+              type="submit" 
+              class="px-6 py-3.5 rounded-xl bg-lime-brand hover:bg-lime-hover text-dark-950 font-bold text-sm shadow-glow-lime transition-all duration-200 flex items-center justify-center gap-2 whitespace-nowrap group active:scale-[0.98]"
+            >
+              <span>Entrar en la lista</span>
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Form feedback status alert -->
+          <div id="hero-status" class="hidden mt-3 text-sm px-4 py-3 rounded-xl transition-all duration-300"></div>
+
+          <!-- Trust markers -->
+          <div class="flex flex-wrap items-center justify-center gap-4 mt-3 text-xs text-slate-500 font-medium">
+            <span class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-lime-brand" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              100% Gratuito
+            </span>
+            <span>•</span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-lime-brand" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Cero spam (solo 1 aviso)
+            </span>
+            <span>•</span>
+            <span class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-lime-brand" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Acceso prioritario anticipado
+            </span>
+          </div>
+        </div>
+
+        <!-- Social Proof Pill -->
+        <div class="inline-flex items-center gap-3 bg-dark-900/60 border border-dark-800 rounded-full px-4 py-2 mt-2 text-xs text-slate-400">
+          <div class="flex -space-x-2 overflow-hidden">
+            <span class="inline-block h-6 w-6 rounded-full ring-2 ring-dark-950 bg-gradient-to-tr from-indigo-500 to-purple-500 text-[10px] text-white font-bold flex items-center justify-center">A</span>
+            <span class="inline-block h-6 w-6 rounded-full ring-2 ring-dark-950 bg-gradient-to-tr from-amber-500 to-red-500 text-[10px] text-white font-bold flex items-center justify-center">M</span>
+            <span class="inline-block h-6 w-6 rounded-full ring-2 ring-dark-950 bg-gradient-to-tr from-emerald-500 to-teal-500 text-[10px] text-white font-bold flex items-center justify-center">L</span>
+            <span class="inline-block h-6 w-6 rounded-full ring-2 ring-dark-950 bg-gradient-to-tr from-blue-500 to-cyan-500 text-[10px] text-white font-bold flex items-center justify-center">C</span>
+          </div>
+          <span>Únete a los amantes de la cultura que ya esperan el lanzamiento</span>
+        </div>
+      </section>
+
+      <!-- REAL SCREENSHOTS HORIZONTAL GALLERY -->
+      <section class="py-12 md:py-16 bg-dark-900/40 border-y border-dark-800/80 overflow-hidden relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <span class="text-lime-brand font-bold text-xs uppercase tracking-widest block mb-2">Capturas Reales de la Aplicación</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Así se ve la experiencia Loggy
+            </h2>
+          </div>
+          <div class="text-xs text-slate-400 flex items-center gap-1.5 font-medium">
+            <span>← Desliza para explorar las pantallas →</span>
+          </div>
+        </div>
+
+        <!-- Scrollable Row of Actual App Screenshots -->
+        <div class="flex gap-5 overflow-x-auto px-4 sm:px-8 pb-6 pt-2 snap-x snap-mandatory no-scrollbar">
+          
+          <!-- Screen 2: Catalog -->
+          <div class="flex-shrink-0 w-60 sm:w-72 snap-center group">
+            <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+              <img src="StoreImages_es/2.png" alt="Busca Películas, Series y Libros" class="w-full h-auto object-cover" loading="lazy">
+            </div>
+            <div class="text-center mt-3">
+              <span class="text-xs font-bold text-white block">Catálogo Unificado</span>
+              <span class="text-[11px] text-slate-400">Películas, series y libros</span>
+            </div>
+          </div>
+
+          <!-- Screen 8: Roulette 30s -->
+          <div class="flex-shrink-0 w-60 sm:w-72 snap-center group">
+            <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50 ring-2 ring-lime-brand/20">
+              <img src="StoreImages_es/8.png" alt="Ruleta 30s ¿Qué vemos juntos?" class="w-full h-auto object-cover" loading="lazy">
+            </div>
+            <div class="text-center mt-3">
+              <span class="text-xs font-bold text-lime-brand block">Ruleta 30 Segundos</span>
+              <span class="text-[11px] text-slate-400">¿Qué vemos juntos con amigos?</span>
+            </div>
+          </div>
+
+          <!-- Screen 6: Screen time and reading habits -->
+          <div class="flex-shrink-0 w-60 sm:w-72 snap-center group">
+            <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+              <img src="StoreImages_es/6.png" alt="Maratón y tiempo en pantalla" class="w-full h-auto object-cover" loading="lazy">
+            </div>
+            <div class="text-center mt-3">
+              <span class="text-xs font-bold text-white block">Estadísticas PRO</span>
+              <span class="text-[11px] text-slate-400">Tiempo en pantalla y hábitos</span>
+            </div>
+          </div>
+
+          <!-- Screen 9: Annual Challenges -->
+          <div class="flex-shrink-0 w-60 sm:w-72 snap-center group">
+            <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+              <img src="StoreImages_es/9.png" alt="Desafíos anuales 2026" class="w-full h-auto object-cover" loading="lazy">
+            </div>
+            <div class="text-center mt-3">
+              <span class="text-xs font-bold text-white block">Desafíos Anuales</span>
+              <span class="text-[11px] text-slate-400">Metas de lectura y cine</span>
+            </div>
+          </div>
+
+          <!-- Screen 3: Director and cast -->
+          <div class="flex-shrink-0 w-60 sm:w-72 snap-center group">
+            <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+              <img src="StoreImages_es/3.png" alt="Reparto y creadores" class="w-full h-auto object-cover" loading="lazy">
+            </div>
+            <div class="text-center mt-3">
+              <span class="text-xs font-bold text-white block">Fichas de Creadores</span>
+              <span class="text-[11px] text-slate-400">Directores, autores y actores</span>
+            </div>
+          </div>
+
+          <!-- Screen 7: Search and filters -->
+          <div class="flex-shrink-0 w-60 sm:w-72 snap-center group">
+            <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+              <img src="StoreImages_es/7.png" alt="Búsqueda instantánea con filtros" class="w-full h-auto object-cover" loading="lazy">
+            </div>
+            <div class="text-center mt-3">
+              <span class="text-xs font-bold text-white block">Buscador Instantáneo</span>
+              <span class="text-[11px] text-slate-400">Filtros por tipo y escáner</span>
+            </div>
+          </div>
+
+          <!-- Screen 5: Streaming platforms -->
+          <div class="flex-shrink-0 w-60 sm:w-72 snap-center group">
+            <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+              <img src="StoreImages_es/5.png" alt="Plataformas de streaming" class="w-full h-auto object-cover" loading="lazy">
+            </div>
+            <div class="text-center mt-3">
+              <span class="text-xs font-bold text-white block">Dónde Ver en Streaming</span>
+              <span class="text-[11px] text-slate-400">Netflix, Max, Prime, Disney+</span>
+            </div>
+          </div>
+
+          <!-- Screen 1: Profile -->
+          <div class="flex-shrink-0 w-60 sm:w-72 snap-center group">
+            <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+              <img src="StoreImages_es/1.png" alt="Perfil y recordatorios" class="w-full h-auto object-cover" loading="lazy">
+            </div>
+            <div class="text-center mt-3">
+              <span class="text-xs font-bold text-white block">Perfil y Comunidad</span>
+              <span class="text-[11px] text-slate-400">Tu diario cultural privado</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- THE 3-IN-1 PROBLEM & SOLUTION -->
+      <section class="py-20 max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-lime-brand font-bold text-xs uppercase tracking-widest block mb-2">Por qué creamos Loggy</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Basta de tener tres aplicaciones para tus aficiones.
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg mt-4 leading-relaxed">
+            ¿Por qué abrir Letterboxd para una película, TV Time para tus capítulos de anime o serie, y Goodreads para tus libros? Loggy unifica toda tu vida cultural en un perfil impecable.
+          </p>
+        </div>
+
+        <!-- Comparison Cards -->
+        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          
+          <!-- Card 1 -->
+          <div class="p-6 rounded-2xl bg-dark-850/80 border border-dark-800 text-left relative overflow-hidden group hover:border-slate-700 transition">
+            <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center font-bold text-lg mb-4">
+              🎬
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Películas</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-4">
+              Califica con medias estrellas, registra fechas de visionado y descubre directores y actores con la base de datos de TMDb en alta resolución.
+            </p>
+            <div class="text-xs font-semibold text-red-400 flex items-center gap-1.5">
+              <span>Catálogo global TMDb</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="p-6 rounded-2xl bg-dark-850/80 border border-dark-800 text-left relative overflow-hidden group hover:border-slate-700 transition">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-lg mb-4">
+              📺
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Series de TV</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-4">
+              Seguimiento de temporadas y episodios emitidos. No vuelvas a olvidar por qué minuto o capítulo te quedaste jamás.
+            </p>
+            <div class="text-xs font-semibold text-blue-400 flex items-center gap-1.5">
+              <span>Seguimiento por episodios</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="p-6 rounded-2xl bg-dark-850/80 border border-dark-800 text-left relative overflow-hidden group hover:border-slate-700 transition">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-lg mb-4">
+              📖
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Libros & Cómics</h3>
+            <p class="text-sm text-slate-400 leading-relaxed mb-4">
+              Control de páginas leídas, notas de lectura, escaneo instantáneo de códigos de barras (ISBN) con la cámara y sincronización con OpenLibrary.
+            </p>
+            <div class="text-xs font-semibold text-amber-400 flex items-center gap-1.5">
+              <span>Escáner de código ISBN</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- EXCLUSIVE FEATURES GRID -->
+      <section class="py-20 md:py-28 px-4 sm:px-6 max-w-6xl mx-auto border-t border-dark-800/80">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-lime-brand font-bold text-xs uppercase tracking-widest block mb-2">Funciones que marcan la diferencia</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Diseñada para la velocidad y la experiencia.
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg mt-4">
+            Cada rincón de Loggy está construido con Compose Multiplatform nativo para darte una experiencia fluida, sin publicidad invasiva y con herramientas que no encontrarás en ningún otro sitio.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Feature 1 -->
+          <div class="p-6 rounded-2xl bg-dark-850 border border-dark-800 hover:border-lime-brand/40 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-lime-brand/10 border border-lime-brand/20 text-lime-brand flex items-center justify-center text-xl mb-5">
+                🎲
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">«¿Qué vemos juntos?» + Ruleta</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                Añade a tu pareja o amigos. Loggy cruza automáticamente vuestras listas de pendientes para mostrar qué tenéis en común y os ayuda a decidir en menos de 30 segundos con la ruleta interactiva.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-dark-800 text-xs text-lime-brand font-semibold">
+              Adiós a 45 minutos buscando en Netflix →
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="p-6 rounded-2xl bg-dark-850 border border-dark-800 hover:border-lime-brand/40 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center text-xl mb-5">
+                🛡️
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Spoiler Shield Inteligente</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                Protección activa para tu feed social. Las reseñas o comentarios de la comunidad con spoilers clave se detectan y desenfocan automáticamente para que nadie te arruine el final.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-dark-800 text-xs text-red-400 font-semibold">
+              Disfruta sin miedo a destripes →
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="p-6 rounded-2xl bg-dark-850 border border-dark-800 hover:border-lime-brand/40 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-xl mb-5">
+                📺
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Dónde ver en Streaming</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                Integración con plataformas de streaming en tu país. Consulta de un vistazo si una película o serie está disponible en Netflix, Prime Video, HBO Max, Disney+, Filmin o Apple TV.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-dark-800 text-xs text-blue-400 font-semibold">
+              Ahorra tiempo y suscripciones →
+            </div>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="p-6 rounded-2xl bg-dark-850 border border-dark-800 hover:border-lime-brand/40 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl mb-5">
+                📷
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Escáner de Libros por Cámara</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                ¿Estás en una librería o biblioteca? Apunta con la cámara al código de barras del libro (ISBN) para agregarlo inmediatamente a tus Pendientes o consultar notas y reseñas de la comunidad.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-dark-800 text-xs text-amber-400 font-semibold">
+              Reconocimiento instantáneo →
+            </div>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="p-6 rounded-2xl bg-dark-850 border border-dark-800 hover:border-lime-brand/40 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-xl mb-5">
+                📊
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Retos Anuales y Estadísticas</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                Fija tus objetivos anuales de libros leídos, horas de cine y temporadas completadas. Disfruta de gráficos de notas, tiempo en pantalla acumulado y desglose por directores y autores.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-dark-800 text-xs text-purple-400 font-semibold">
+              Monitorea tus hábitos culturales →
+            </div>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="p-6 rounded-2xl bg-dark-850 border border-dark-800 hover:border-lime-brand/40 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl mb-5">
+                ⚡
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Offline First & Sincronización</h3>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                Base de datos local Room de alto rendimiento. Valora o apunta tus lecturas en un vuelo o en el metro sin cobertura; todo se sincronizará automáticamente con la nube en cuanto recuperes conexión.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-dark-800 text-xs text-emerald-400 font-semibold">
+              Tus datos siempre contigo →
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECONDARY / BOTTOM WAITLIST CTA -->
+      <section class="py-20 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+          <div class="rounded-3xl bg-gradient-to-b from-dark-850 to-dark-900 border border-dark-700/80 p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl">
+            <!-- Glow background -->
+            <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-lime-brand/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <span class="inline-block px-3 py-1 rounded-full bg-lime-brand/15 text-lime-brand border border-lime-brand/30 text-xs font-bold uppercase tracking-wider mb-4">
+              Lanzamiento Inminente
+            </span>
+
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+              Sé el primero en descargar Loggy
+            </h2>
+
+            <p class="text-slate-400 max-w-xl mx-auto text-sm sm:text-base mb-8 leading-relaxed">
+              La app está terminada y en proceso de revisión en Google Play. Déjanos tu correo y te enviaremos el enlace directo de descarga en el minuto exacto que esté aprobada.
+            </p>
+
+            <!-- Bottom Form -->
+            <form id="bottom-waitlist-form" class="max-w-md mx-auto flex flex-col sm:flex-row gap-2.5">
+              <input 
+                type="email" 
+                name="email" 
+                required 
+                placeholder="Tu correo electrónico..." 
+                class="flex-grow px-4 py-3.5 rounded-xl bg-dark-950/90 border border-dark-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-lime-brand focus:ring-1 focus:ring-lime-brand transition-all"
+              >
+              <button 
+                type="submit" 
+                class="px-6 py-3.5 rounded-xl bg-lime-brand hover:bg-lime-hover text-dark-950 font-bold text-sm shadow-glow-lime transition-all duration-200 whitespace-nowrap active:scale-[0.98]"
+              >
+                Avisadme al salir
+              </button>
+            </form>
+
+            <div id="bottom-status" class="hidden max-w-md mx-auto mt-4 text-sm px-4 py-3 rounded-xl transition-all duration-300"></div>
+
+            <p class="text-[11px] text-slate-500 mt-4">
+              Respetamos tu privacidad. Solo 1 email cuando la app esté pública. Puedes darte de baja con un clic.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-dark-800 py-10 bg-dark-950">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div class="flex items-center gap-3">
+          <img src="logo_app.png" alt="Loggy" class="w-6 h-6 rounded-lg opacity-80">
+          <span>&copy; 2026 Loggy. Todos los derechos reservados.</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <span>Hecho con amor para amantes del cine, series y literatura</span>
+          <a href="#waitlist-section" class="text-slate-400 hover:text-lime-brand transition">Volver arriba ↑</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- JAVASCRIPT: SUPABASE WAITLIST LOGIC -->
+  <script>
+    const SUPABASE_URL = "https://pltjypvxqnjegzjnxxtk.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBsdGp5cHZ4cW5qZWd6am54eHRrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgyNjU0MTcsImV4cCI6MjEwMzg0MTQxN30.0GDybSXcQ2Po80nT6zKSiM0H9yA1TrA_pI706BPO9Bw";
+
+    function setupForm(formId, statusId) {
+      const form = document.getElementById(formId);
+      const status = document.getElementById(statusId);
+      if (!form || !status) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const input = form.querySelector('input[name="email"]');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnContent = submitBtn.innerHTML;
+        const email = (input.value || '').trim().toLowerCase();
+
+        if (!email || !email.includes('@')) {
+          showStatus(status, 'Por favor, introduce un correo electrónico válido.', 'error');
+          return;
+        }
+
+        // Loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg class="animate-spin h-4 w-4 text-dark-950 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+          </svg>
+          <span>Guardando...</span>
+        `;
+        hideStatus(status);
+
+        try {
+          const response = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': SUPABASE_KEY,
+              'Authorization': `Bearer ${SUPABASE_KEY}`,
+              'Prefer': 'return=minimal'
+            },
+            body: JSON.stringify({ email })
+          });
+
+          if (response.ok || response.status === 201) {
+            showStatus(status, '🎉 ¡Estás en la lista! Te avisaremos en cuanto Loggy esté disponible en Google Play. Cero spam.', 'success');
+            input.value = '';
+          } else if (response.status === 409) {
+            showStatus(status, '👍 ¡Ya estás registrado! Tu correo ya estaba guardado en la lista de espera.', 'info');
+          } else {
+            const errorText = await response.text();
+            if (errorText.includes('duplicate') || errorText.includes('23505') || errorText.includes('unique')) {
+              showStatus(status, '👍 ¡Ya estás registrado! Tu correo ya estaba guardado en la lista de espera.', 'info');
+            } else {
+              showStatus(status, 'No pudimos registrarte en este momento. Inténtalo de nuevo en unos minutos.', 'error');
+            }
+          }
+        } catch (err) {
+          console.error('Waitlist submission error:', err);
+          showStatus(status, 'Error de conexión. Comprueba tu conexión a internet.', 'error');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnContent;
+        }
+      });
+    }
+
+    function showStatus(elem, text, type) {
+      elem.classList.remove('hidden', 'bg-emerald-500/15', 'text-emerald-300', 'border-emerald-500/30', 'bg-red-500/15', 'text-red-300', 'border-red-500/30', 'bg-blue-500/15', 'text-blue-300', 'border-blue-500/30');
+      
+      let classes = ['border'];
+      if (type === 'success') {
+        classes.push('bg-emerald-500/15', 'text-emerald-300', 'border-emerald-500/30');
+      } else if (type === 'info') {
+        classes.push('bg-blue-500/15', 'text-blue-300', 'border-blue-500/30');
+      } else {
+        classes.push('bg-red-500/15', 'text-red-300', 'border-red-500/30');
+      }
+      elem.classList.add(...classes);
+      elem.textContent = text;
+    }
+
+    function hideStatus(elem) {
+      elem.classList.add('hidden');
+    }
+
+    setupForm('hero-waitlist-form', 'hero-status');
+    setupForm('bottom-waitlist-form', 'bottom-status');
+  </script>
+</body>
+</html>
