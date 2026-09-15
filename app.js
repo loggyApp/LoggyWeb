@@ -13,7 +13,9 @@ const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=com.ccdev
 const APP_STORE_URL = "https://apps.apple.com/app/loggy/id6742398418";
 
 // Initialize Supabase Client
-const supabase = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
+const supabase = (typeof window !== 'undefined' && window.supabase) 
+  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) 
+  : null;
 
 // Global Landing & App State
 const state = {
@@ -56,23 +58,6 @@ const translations = {
     hero_trust_rating: "4.9 / 5 estrellas por más de 1.000 cinéfilos y lectores",
     hero_trust_free: "100% Gratuito · Sin publicidad invasiva · Modo offline",
 
-    // Pain point vs Solution (The Hook)
-    compare_badge: "¿Por qué necesitas Loggy hoy?",
-    compare_title: "Tu entretenimiento no debería estar dividido en tres apps",
-    compare_desc: "Mantener listas separadas en tres plataformas lentas es cosa del pasado. Descubre la diferencia de tener toda tu vida cultural en un solo lugar.",
-    card_old_title: "La forma antigua (Frustrante)",
-    card_old_item1: "Tener tres aplicaciones distintas ocupando espacio en tu teléfono.",
-    card_old_item2: "Perder 40 minutos cada noche discutiendo qué película ver en streaming.",
-    card_old_item3: "Destripes en redes sociales que arruinan el final de tu serie favorita.",
-    card_old_item4: "Teclear títulos de libros y autores a mano cada vez que compras uno.",
-    card_old_item5: "Publicidad invasiva y pérdida de datos si no tienes cobertura.",
-    card_new_title: "La experiencia Loggy (Todo en uno)",
-    card_new_item1: "Un solo perfil impecable para todas tus películas, series y libros.",
-    card_new_item2: "La ruleta de 30 segundos: cruza listas con amigos y decidid al instante.",
-    card_new_item3: "Spoiler Shield activo: reseñas con destripes desenfocadas automáticamente.",
-    card_new_item4: "Escáner por cámara: apunta al código de barras del libro y listo.",
-    card_new_item5: "100% Offline first con base de datos nativa de alto rendimiento.",
-
     // Core Features
     features_badge: "Diseñada para enamorarte",
     features_title: "Herramientas que no encontrarás en ningún otro sitio",
@@ -105,6 +90,23 @@ const translations = {
     feat_6_title: "100% Offline first y sincronización",
     feat_6_desc: "Base de datos local ultrarrápida. Valora o anota lecturas en un vuelo o en el metro sin cobertura; todo se sincronizará automáticamente con la nube en cuanto recuperes conexión.",
 
+    // Pain point vs Solution (The Hook)
+    compare_badge: "¿Por qué necesitas Loggy hoy?",
+    compare_title: "Tu entretenimiento no debería estar dividido en tres apps",
+    compare_desc: "Mantener listas separadas en tres plataformas lentas es cosa del pasado. Descubre la diferencia de tener toda tu vida cultural en un solo lugar.",
+    card_old_title: "La forma antigua (Frustrante)",
+    card_old_item1: "Tener tres aplicaciones distintas ocupando espacio en tu teléfono.",
+    card_old_item2: "Perder 40 minutos cada noche discutiendo qué película ver en streaming.",
+    card_old_item3: "Destripes en redes sociales que arruinan el final de tu serie favorita.",
+    card_old_item4: "Teclear títulos de libros y autores a mano cada vez que compras uno.",
+    card_old_item5: "Publicidad invasiva y pérdida de datos si no tienes cobertura.",
+    card_new_title: "La experiencia Loggy (Todo en uno)",
+    card_new_item1: "Un solo perfil impecable para todas tus películas, series y libros.",
+    card_new_item2: "La ruleta de 30 segundos: cruza listas con amigos y decidid al instante.",
+    card_new_item3: "Spoiler Shield activo: reseñas con destripes desenfocadas automáticamente.",
+    card_new_item4: "Escáner por cámara: apunta al código de barras del libro y listo.",
+    card_new_item5: "100% Offline first con base de datos nativa de alto rendimiento.",
+
     // Gallery
     gallery_badge: "Vistas reales de la app",
     gallery_title: "Así se ve la experiencia Loggy en tu mano",
@@ -113,27 +115,53 @@ const translations = {
     gallery_tab_ios: "iPhone (iOS)",
     gallery_scroll_hint: "← Desliza horizontalmente para ver las pantallas →",
 
-    // Testimonials
+    // Testimonials (8 reviews)
     testimonials_badge: "Lo que dice la comunidad",
     testimonials_title: "Amada por más de 1.000 cinéfilos y lectores",
+    testimonials_desc: "Descubre cómo Loggy ha transformado la manera de registrar y compartir la cultura para cientos de apasionados.",
+    testimonials_hint: "Pasa el cursor o mantén pulsado para pausar el carrusel",
     test_1_quote: "«Loggy ha sustituido por completo a Letterboxd y TV Time en mi teléfono. La ruleta de 30 segundos nos salvó las noches de cine con mi pareja.»",
     test_1_author: "Carlos Méndez · Cinéfilo y seriéfilo",
+    test_1_location: "Madrid",
     test_2_quote: "«Poder escanear códigos de barras de libros en la librería con la cámara y tener mis lecturas junto a mis películas favoritas es una maravilla.»",
     test_2_author: "Elena Rivas · Club de lectura",
+    test_2_location: "Barcelona",
     test_3_quote: "«El filtro contra spoilers es una genialidad. Por fin puedo leer reseñas de la comunidad sin miedo a que me destripen el final de temporada.»",
     test_3_author: "Marcos S. · Aficionado al anime y sci-fi",
+    test_3_location: "Valencia",
+    test_4_quote: "«Las calificaciones con media estrella y las estadísticas anuales desglosadas por director y autor son justo lo que echaba en falta en otras apps.»",
+    test_4_author: "Laura Gómez · Crítica literaria aficionada",
+    test_4_location: "Sevilla",
+    test_5_quote: "«Saber exactamente en qué plataforma de streaming está disponible cada película antes de buscar ahorra un tiempo infinito cada fin de semana.»",
+    test_5_author: "David Ferrer · Maratonista de series",
+    test_5_location: "Bilbao",
+    test_6_quote: "«Viajo mucho y poder registrar mis lecturas y películas en el avión 100% offline sin perder nada es clave. Al aterrizar se sincroniza al instante.»",
+    test_6_author: "Sofía Benítez · Lectora empedernida",
+    test_6_location: "Buenos Aires",
+    test_7_quote: "«Los retos anuales unificados de libros, películas y series te motivan muchísimo. Ver el progreso en los tres círculos da una satisfacción enorme.»",
+    test_7_author: "Javier Morales · Creador cultural",
+    test_7_location: "Ciudad de México",
+    test_8_quote: "«La app es rapidísima y la interfaz limpia y oscura no te satura con publicidad invasiva. Una delicia técnica y visual hecha con Compose.»",
+    test_8_author: "Marta Vidal · Diseñadora de producto",
+    test_8_location: "Zaragoza",
 
-    // FAQ Section
+    // FAQ Section (7 items)
     faq_badge: "Resolvemos tus dudas",
     faq_title: "Preguntas frecuentes",
     faq_q1: "¿Loggy es completamente gratuita?",
-    faq_a1: "Sí, puedes descargar Loggy y registrar todas tus películas, series y libros sin pagar absolutamente nada. Ofrecemos una versión PRO opcional para quienes desean apoyar el desarrollo y desbloquear estadísticas avanzadas.",
-    faq_q2: "¿Puedo acceder a mis datos desde el ordenador?",
-    faq_a2: "¡Por supuesto! Tu cuenta se sincroniza en tiempo real en la nube, por lo que puedes abrir la versión web de Loggy en cualquier navegador para ver o agregar obras a tu diario.",
-    faq_q3: "¿Qué diferencia a Loggy de Letterboxd o TV Time?",
-    faq_a3: "Loggy une los tres mundos (cine, series y libros) en una sola aplicación con herramientas exclusivas como la ruleta de 30 segundos para amigos, el escáner de códigos de barras ISBN y protección activa contra spoilers.",
-    faq_q4: "¿Funciona sin conexión a internet?",
-    faq_a4: "Sí. Loggy está construida con arquitectura 'offline first', lo que significa que puedes consultar tu biblioteca y guardar reseñas sin cobertura (en aviones o metro); se sincronizará automáticamente al volver a conectar.",
+    faq_a1: "Sí, puedes descargar Loggy y registrar todas tus películas, series y libros sin pagar absolutamente nada. La versión gratuita incluye registro ilimitado, puntuaciones con media estrella (de 0.5 a 5.0), la ruleta de 30 segundos con amigos y el escáner de libros por cámara. Disponemos de una suscripción PRO opcional para quienes desean apoyar el proyecto, eliminar anuncios y acceder a analíticas avanzadas de hábitos culturales.",
+    faq_q2: "¿Puedo importar mis datos desde Letterboxd, Goodreads o TV Time?",
+    faq_a2: "¡Sí! Loggy incluye soporte para importar tus archivos CSV exportados de Letterboxd, Goodreads y TV Time. No perderás ni una sola reseña, fecha de visualización o libro leído al mudarte a Loggy; todo tu historial se preserva intacto.",
+    faq_q3: "¿Cómo funciona la ruleta de 30 segundos con amigos?",
+    faq_a3: "Conecta con tu pareja o amigos en Loggy. La app compara automáticamente vuestras listas de pendientes para encontrar qué películas o series tenéis en común y os apetece ver a ambos. Al pulsar el botón, la ruleta selecciona un título al azar de vuestra coincidencia en menos de 30 segundos, eliminando las discusiones eternas en el sofá.",
+    faq_q4: "¿Qué es el Spoiler Shield y cómo protege mis series y libros?",
+    faq_a4: "El Spoiler Shield es un sistema de protección comunitaria que analiza y detecta advertencias de destripes en opiniones. Cualquier reseña que contenga información sobre finales o giros argumentales se muestra desenfocada y con una etiqueta de aviso. Solo se muestra el texto completo si decides pulsar deliberadamente para revelarlo.",
+    faq_q5: "¿Puedo ver dónde ver una película o serie en streaming según mi país?",
+    faq_a5: "Sí. Gracias a la integración con TMDb y proveedores oficiales de streaming, cada ficha de película o serie te muestra los enlaces y disponibilidad directa en plataformas como Netflix, Prime Video, Disney+, Max, Filmin o Apple TV adaptadas a tu país de residencia.",
+    faq_q6: "¿Funciona sin conexión a internet (modo offline)?",
+    faq_a6: "Sí, al 100%. Loggy utiliza una arquitectura nativa 'offline-first' con Room SQLite. Puedes calificar películas, redactar reseñas o registrar lecturas en un vuelo o en el metro sin cobertura. Tan pronto como tu dispositivo recupere conexión, todos los cambios se sincronizarán con la nube de forma invisible.",
+    faq_q7: "¿Puedo consultar mi biblioteca desde el ordenador o navegador web?",
+    faq_a7: "¡Por supuesto! Desde esta misma página web puedes abrir la 'Versión web' en la barra superior. Inicia sesión con la misma cuenta de Loggy de tu móvil y podrás ver tu biblioteca completa, consultar notas y calificar obras desde tu portátil o equipo de sobremesa.",
 
     // Bottom CTA
     bottom_badge: "Empieza hoy mismo",
@@ -152,7 +180,7 @@ const translations = {
     webapp_sync_hint: "Los datos que registres aquí se sincronizan al instante con tu aplicación móvil.",
 
     footer_rights: "© 2026 Loggy. Todos los derechos reservados.",
-    footer_love: "Hecho con amor para amantes del cine, las series y la literatura."
+    footer_back_top: "Volver arriba ↑"
   },
   en: {
     meta_title: "Loggy — Your cultural diary for movies, TV series & books | Free download",
@@ -178,24 +206,7 @@ const translations = {
     hero_trust_rating: "4.9 / 5 stars by over 1,000 film lovers & readers",
     hero_trust_free: "100% Free · Zero intrusive ads · Full offline mode",
 
-    // Pain point vs Solution (The Hook)
-    compare_badge: "Why you need Loggy today",
-    compare_title: "Your cultural life shouldn't be split across three apps",
-    compare_desc: "Managing separate lists across three slow platforms is a thing of the past. Experience the difference of having your entire cultural diary in one single place.",
-    card_old_title: "The old way (Frustrating)",
-    card_old_item1: "Three separate apps taking up memory and battery on your phone.",
-    card_old_item2: "Wasting 40 minutes every evening arguing about what movie to stream.",
-    card_old_item3: "Accidental spoilers on social feeds ruining season finales.",
-    card_old_item4: "Typing out book titles and authors manually every time you read.",
-    card_old_item5: "Intrusive ads and losing data when you have no signal.",
-    card_new_title: "The Loggy experience (All in one)",
-    card_new_item1: "One polished cultural profile for all your movies, shows, and books.",
-    card_new_item2: "The 30-second roulette: match watchlists with friends and decide instantly.",
-    card_new_item3: "Active spoiler shield: community reviews with spoilers blurred automatically.",
-    card_new_item4: "Camera barcode scanner: point at any book's ISBN and you're set.",
-    card_new_item5: "100% Offline first with high-performance native database.",
-
-    // Core Features
+    // Features Section
     features_badge: "Engineered to delight",
     features_title: "Features you won't find anywhere else",
     features_desc: "Every part of Loggy is built with native Compose Multiplatform for blazing fast performance.",
@@ -227,6 +238,23 @@ const translations = {
     feat_6_title: "100% Offline first & cloud sync",
     feat_6_desc: "Blazing fast local database. Log your reviews or reading sessions on a flight or underground metro; everything syncs to the cloud once you reconnect.",
 
+    // Compare Section
+    compare_badge: "Why you need Loggy today",
+    compare_title: "Your cultural life shouldn't be split across three apps",
+    compare_desc: "Managing separate lists across three slow platforms is a thing of the past. Experience the difference of having your entire cultural diary in one single place.",
+    card_old_title: "The old way (Frustrating)",
+    card_old_item1: "Three separate apps taking up memory and battery on your phone.",
+    card_old_item2: "Wasting 40 minutes every evening arguing about what movie to stream.",
+    card_old_item3: "Accidental spoilers on social feeds ruining season finales.",
+    card_old_item4: "Typing out book titles and authors manually every time you read.",
+    card_old_item5: "Intrusive ads and losing data when you have no signal.",
+    card_new_title: "The Loggy experience (All in one)",
+    card_new_item1: "One polished cultural profile for all your movies, shows, and books.",
+    card_new_item2: "The 30-second roulette: match watchlists with friends and decide instantly.",
+    card_new_item3: "Active spoiler shield: community reviews with spoilers blurred automatically.",
+    card_new_item4: "Camera barcode scanner: point at any book's ISBN and you're set.",
+    card_new_item5: "100% Offline first with high-performance native database.",
+
     // Gallery
     gallery_badge: "Actual app screenshots",
     gallery_title: "See the native Loggy experience in your hand",
@@ -235,27 +263,53 @@ const translations = {
     gallery_tab_ios: "iPhone (iOS)",
     gallery_scroll_hint: "← Swipe horizontally to explore the screens →",
 
-    // Testimonials
+    // Testimonials (8 reviews)
     testimonials_badge: "Community love",
     testimonials_title: "Loved by over 1,000 film buffs & readers",
+    testimonials_desc: "Discover how Loggy transformed how hundreds of passionate people track and share culture.",
+    testimonials_hint: "Hover or touch to pause carousel",
     test_1_quote: "“Loggy completely replaced Letterboxd and TV Time on my phone. The 30-second roulette saved movie night with my partner.”",
     test_1_author: "Carlos Méndez · Film & series enthusiast",
+    test_1_location: "Madrid",
     test_2_quote: "“Being able to scan book barcodes in bookstores with my camera and have all my reading logs right next to my films is amazing.”",
     test_2_author: "Elena Rivas · Book club organizer",
+    test_2_location: "Barcelona",
     test_3_quote: "“The spoiler shield is pure genius. I can finally browse community reviews without fear of having season endings spoiled.”",
     test_3_author: "Marcos S. · Anime & sci-fi lover",
+    test_3_location: "Valencia",
+    test_4_quote: "“Half-star ratings and the annual stats breakdown by director and author are exactly what I was missing in other apps.”",
+    test_4_author: "Laura Gómez · Book reviewer",
+    test_4_location: "Seville",
+    test_5_quote: "“Knowing exactly which streaming platform has each movie before searching saves so much time every weekend.”",
+    test_5_author: "David Ferrer · TV series binger",
+    test_5_location: "Bilbao",
+    test_6_quote: "“I travel frequently; logging my reads and watched films 100% offline on flights without losing anything is a game changer.”",
+    test_6_author: "Sofía Benítez · Avid reader",
+    test_6_location: "Buenos Aires",
+    test_7_quote: "“Unified yearly challenges for books, movies, and series keep me super motivated. Seeing progress on all three dials is so satisfying.”",
+    test_7_author: "Javier Morales · Cultural creator",
+    test_7_location: "Mexico City",
+    test_8_quote: "“Blazing fast native performance and a clean dark UI without intrusive ads. A technical and aesthetic masterpiece made with Compose.”",
+    test_8_author: "Marta Vidal · Product designer",
+    test_8_location: "Zaragoza",
 
-    // FAQ Section
+    // FAQ Section (7 items)
     faq_badge: "Got questions?",
     faq_title: "Frequently asked questions",
     faq_q1: "Is Loggy completely free?",
-    faq_a1: "Yes, you can download Loggy and log all your movies, TV shows, and books without paying a single cent. We offer an optional PRO tier for users who wish to support development and unlock advanced analytics.",
-    faq_q2: "Can I access my data from my computer?",
-    faq_a2: "Absolutely! Your account syncs in real time with our cloud, so you can open the Loggy web version in any desktop browser to view or add titles to your diary.",
-    faq_q3: "How does Loggy compare to Letterboxd or TV Time?",
-    faq_a3: "Loggy unites all three domains (movies, series, and books) into one single app with unique features like the 30-second friend roulette, camera ISBN scanner, and active spoiler shield.",
-    faq_q4: "Does it work without an internet connection?",
-    faq_a4: "Yes. Loggy is built offline-first. You can browse your diary and save reviews without signal (on planes or underground); it will automatically sync when you reconnect.",
+    faq_a1: "Yes, you can download Loggy and track all your movies, TV shows, and books without paying a single cent. The free tier includes unlimited logging, half-star ratings (0.5 to 5.0), the 30-second friends roulette, and the camera barcode scanner. We also offer an optional PRO subscription for those who want to support development, remove ads, and unlock advanced reading and viewing analytics.",
+    faq_q2: "Can I import my data from Letterboxd, Goodreads, or TV Time?",
+    faq_a2: "Yes! Loggy includes built-in support for importing CSV files exported from Letterboxd, Goodreads, and TV Time. You won't lose a single rating, watch date, or reading log when switching to Loggy; your entire history is preserved intact.",
+    faq_q3: "How does the 30-second friends roulette work?",
+    faq_a3: "Connect with your partner or friends on Loggy. The app automatically compares your pending watchlists to find overlapping titles you both want to watch. Spin the interactive roulette, and you'll have your movie or show picked in under 30 seconds, eliminating endless couch debates.",
+    faq_q4: "What is the Spoiler Shield and how does it protect me?",
+    faq_a4: "The Spoiler Shield is an active community safeguard. When a user posts a review containing major plot twists or finale spoilers, the content is automatically detected and blurred out with a clear warning tag. You can only read the spoiler if you deliberately tap to reveal it. Your feed remains completely safe.",
+    faq_q5: "Can I see where to stream movies and TV shows in my country?",
+    faq_a5: "Yes. Powered by TMDb and official streaming availability providers, every movie and series card shows direct availability on platforms like Netflix, Prime Video, Disney+, Max, Filmin, or Apple TV tailored to your country of residence.",
+    faq_q6: "Does Loggy work without an internet connection (offline mode)?",
+    faq_a6: "Yes, 100%. Loggy is architected offline-first using Room SQLite. You can rate movies, write reviews, or log books on a flight or in the subway with zero cellular signal. As soon as your device reconnects, all changes sync seamlessly with the cloud.",
+    faq_q7: "Can I access my diary from a computer or web browser?",
+    faq_a7: "Absolutely! From this very website, you can click 'Web version' in the top bar. Sign in with the same Loggy account you use on mobile to browse your full library, check notes, and rate titles directly from your desktop browser.",
 
     // Bottom CTA
     bottom_badge: "Start today",
@@ -274,7 +328,7 @@ const translations = {
     webapp_sync_hint: "Anything logged here syncs instantly to your mobile app.",
 
     footer_rights: "© 2026 Loggy. All rights reserved.",
-    footer_love: "Made with love for film, TV & book lovers."
+    footer_back_top: "Back to top ↑"
   }
 };
 
@@ -283,65 +337,32 @@ function t(key) {
   return translations[lang]?.[key] || translations['es']?.[key] || key;
 }
 
-// ==================== INITIALIZATION ====================
+// ==================== LANGUAGE ENGINE ====================
 
-document.addEventListener('DOMContentLoaded', () => {
-  initLanguage();
-  detectUserPlatform();
-  setupGallery();
-  setupSpoilerDemo();
-  setupFAQAccordion();
-  setupStickyBar();
-  setupWebAppIntegration();
-});
-
-// Detect Android / iOS to highlight the relevant store button
-function detectUserPlatform() {
-  const ua = (navigator.userAgent || navigator.vendor || window.opera || '').toLowerCase();
-  const isAndroid = /android/i.test(ua);
-  const isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-  if (isIOS) {
-    state.galleryPlatform = 'ios';
-    highlightStoreButton('ios');
-  } else {
-    state.galleryPlatform = 'android';
-    highlightStoreButton('android');
-  }
-  updateGalleryImages();
-}
-
-function highlightStoreButton(platform) {
-  const gpBtns = document.querySelectorAll('.btn-cta-googleplay');
-  const asBtns = document.querySelectorAll('.btn-cta-appstore');
-
-  if (platform === 'ios') {
-    asBtns.forEach(btn => {
-      btn.classList.add('ring-2', 'ring-lime-brand', 'scale-[1.02]');
-    });
-  } else {
-    gpBtns.forEach(btn => {
-      btn.classList.add('ring-2', 'ring-lime-brand', 'scale-[1.02]');
-    });
-  }
-}
-
-// Language Engine
 function initLanguage() {
-  const saved = localStorage.getItem('loggy_lang');
-  if (saved && (saved === 'es' || saved === 'en')) {
-    state.currentLang = saved;
-  } else {
-    const bLang = (navigator.language || '').toLowerCase();
-    state.currentLang = bLang.startsWith('es') ? 'es' : 'en';
+  let initialLang = 'es';
+  try {
+    const saved = localStorage.getItem('loggy_lang');
+    if (saved && (saved === 'es' || saved === 'en')) {
+      initialLang = saved;
+    } else {
+      const bLang = (navigator.language || '').toLowerCase();
+      initialLang = bLang.startsWith('es') ? 'es' : 'en';
+    }
+  } catch (e) {
+    console.warn("Storage access issue:", e);
   }
-  updateLanguageUI();
+  setLanguage(initialLang);
 }
 
 function setLanguage(lang) {
   if (lang !== 'es' && lang !== 'en') return;
   state.currentLang = lang;
-  localStorage.setItem('loggy_lang', lang);
+  try {
+    localStorage.setItem('loggy_lang', lang);
+  } catch (e) {
+    // Ignore storage errors in private mode
+  }
   document.documentElement.lang = lang;
   updateLanguageUI();
   updateGalleryImages();
@@ -364,13 +385,19 @@ function updateLanguageUI() {
   // Update text nodes
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    el.textContent = t(key);
+    const translated = t(key);
+    if (translated !== undefined) {
+      el.textContent = translated;
+    }
   });
 
   // Update placeholders
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
-    el.placeholder = t(key);
+    const translated = t(key);
+    if (translated !== undefined) {
+      el.placeholder = translated;
+    }
   });
 
   // Update HTML title & meta description
@@ -381,28 +408,82 @@ function updateLanguageUI() {
   }
 }
 
+// Bind language buttons with explicit event listeners
+function setupLanguageControls() {
+  const btnEs = document.getElementById('btn-lang-es');
+  const btnEn = document.getElementById('btn-lang-en');
+
+  if (btnEs) {
+    btnEs.addEventListener('click', (e) => {
+      e.preventDefault();
+      setLanguage('es');
+    });
+  }
+  if (btnEn) {
+    btnEn.addEventListener('click', (e) => {
+      e.preventDefault();
+      setLanguage('en');
+    });
+  }
+}
+
+// ==================== PLATFORM DETECTION & STORE HIGHLIGHT ====================
+
+function detectUserPlatform() {
+  const ua = (navigator.userAgent || navigator.vendor || window.opera || '').toLowerCase();
+  const isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+  if (isIOS) {
+    state.galleryPlatform = 'ios';
+    highlightStoreButton('ios');
+  } else {
+    state.galleryPlatform = 'android';
+    highlightStoreButton('android');
+  }
+  updateGalleryTabsUI();
+  updateGalleryImages();
+}
+
+function highlightStoreButton(platform) {
+  const gpBtns = document.querySelectorAll('.btn-cta-googleplay');
+  const asBtns = document.querySelectorAll('.btn-cta-appstore');
+
+  if (platform === 'ios') {
+    asBtns.forEach(btn => {
+      btn.classList.add('ring-2', 'ring-lime-brand', 'scale-[1.02]');
+    });
+  } else {
+    gpBtns.forEach(btn => {
+      btn.classList.add('ring-2', 'ring-lime-brand', 'scale-[1.02]');
+    });
+  }
+}
+
 // ==================== GALLERY PLATFORM & IMAGES ====================
 
 function setGalleryPlatform(platform) {
   if (platform !== 'android' && platform !== 'ios') return;
   state.galleryPlatform = platform;
+  updateGalleryTabsUI();
+  updateGalleryImages();
+}
 
+function updateGalleryTabsUI() {
   const btnAndroid = document.getElementById('gallery-tab-android');
   const btnIos = document.getElementById('gallery-tab-ios');
+  const platform = state.galleryPlatform;
 
   if (platform === 'android') {
     btnAndroid?.classList.add('bg-lime-brand', 'text-dark-950', 'shadow-glow-lime');
-    btnAndroid?.classList.remove('text-slate-400', 'bg-dark-850');
+    btnAndroid?.classList.remove('text-slate-400');
     btnIos?.classList.remove('bg-lime-brand', 'text-dark-950', 'shadow-glow-lime');
-    btnIos?.classList.add('text-slate-400', 'bg-dark-850');
+    btnIos?.classList.add('text-slate-400');
   } else {
     btnIos?.classList.add('bg-lime-brand', 'text-dark-950', 'shadow-glow-lime');
-    btnIos?.classList.remove('text-slate-400', 'bg-dark-850');
+    btnIos?.classList.remove('text-slate-400');
     btnAndroid?.classList.remove('bg-lime-brand', 'text-dark-950', 'shadow-glow-lime');
-    btnAndroid?.classList.add('text-slate-400', 'bg-dark-850');
+    btnAndroid?.classList.add('text-slate-400');
   }
-
-  updateGalleryImages();
 }
 
 function updateGalleryImages() {
@@ -448,43 +529,47 @@ function setupGallery() {
   if (btnAndroid) btnAndroid.addEventListener('click', () => setGalleryPlatform('android'));
   if (btnIos) btnIos.addEventListener('click', () => setGalleryPlatform('ios'));
 
+  updateGalleryTabsUI();
   updateGalleryImages();
 }
 
 // ==================== INTERACTIVE SPOILER DEMO ====================
 
 function setupSpoilerDemo() {
+  const demoContainer = document.getElementById('spoiler-demo-container');
   const demoOverlay = document.getElementById('spoiler-demo-overlay');
   const demoText = document.getElementById('spoiler-demo-text');
 
-  if (demoOverlay && demoText) {
-    demoOverlay.addEventListener('click', () => {
-      demoOverlay.classList.add('hidden');
-      demoText.classList.remove('blur-md', 'select-none');
+  if (demoContainer && demoOverlay && demoText) {
+    demoContainer.addEventListener('click', () => {
+      if (demoOverlay.classList.contains('hidden')) {
+        demoOverlay.classList.remove('hidden');
+        demoText.classList.add('blur-md', 'select-none');
+      } else {
+        demoOverlay.classList.add('hidden');
+        demoText.classList.remove('blur-md', 'select-none');
+      }
     });
   }
 }
 
-// ==================== FAQ ACCORDION ====================
+// ==================== FAQ ACCORDION (SMOOTH MUTUAL EXCLUSION) ====================
 
 function setupFAQAccordion() {
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const btn = item.querySelector('.faq-toggle');
-    const answer = item.querySelector('.faq-answer');
-    const icon = item.querySelector('.faq-icon');
+  const container = document.getElementById('faq-accordion-container');
+  if (!container) return;
 
-    if (btn && answer) {
-      btn.addEventListener('click', () => {
-        const isOpen = !answer.classList.contains('hidden');
-        document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
-        document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
-
-        if (!isOpen) {
-          answer.classList.remove('hidden');
-          icon?.classList.add('rotate-180');
-        }
-      });
-    }
+  const detailsList = container.querySelectorAll('details');
+  detailsList.forEach(targetDetail => {
+    targetDetail.addEventListener('toggle', () => {
+      if (targetDetail.open) {
+        detailsList.forEach(otherDetail => {
+          if (otherDetail !== targetDetail && otherDetail.open) {
+            otherDetail.removeAttribute('open');
+          }
+        });
+      }
+    });
   });
 }
 
@@ -633,4 +718,32 @@ function renderWebAuthPrompt() {
       alert("Error al iniciar sesión: " + err.message);
     }
   });
+}
+
+// ==================== GLOBAL ATTACHMENTS & IMMEDIATE BOOTSTRAP ====================
+
+// Expose critical functions globally on window
+if (typeof window !== 'undefined') {
+  window.setLanguage = setLanguage;
+  window.setGalleryPlatform = setGalleryPlatform;
+}
+
+function initApp() {
+  initLanguage();
+  setupLanguageControls();
+  detectUserPlatform();
+  setupGallery();
+  setupSpoilerDemo();
+  setupFAQAccordion();
+  setupStickyBar();
+  setupWebAppIntegration();
+}
+
+// Guarantee execution regardless of document timing
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+  } else {
+    initApp();
+  }
 }

@@ -3,77 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- ASO & SEO Title -->
-  <title data-i18n="meta_title">Loggy — Tu diario cultural de películas, series y libros | Descarga gratis</title>
+  <title>Loggy — Tu diario cultural de películas, series y libros | Descarga gratis</title>
   
   <!-- ASO & SEO Meta Tags -->
-  <meta name="description" data-i18n-content="meta_desc" content="La app todo en uno que une Letterboxd, TV Time y Goodreads. Calificaciones con media estrella, ruleta de 30 segundos con amigos, escáner de libros y protección contra spoilers. ¡Descárgala gratis!">
-  <meta name="keywords" content="Loggy, películas, series, libros, Letterboxd en español, TV Time, Goodreads, diario cultural, ruleta qué ver, escáner ISBN, spoiler shield, tracker cultural, app cine, app series, app libros">
-  <meta name="author" content="Loggy">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://loggy.app/">
+  <meta name="description" content="La app todo en uno que une Letterboxd, TV Time y Goodreads. Calificaciones con media estrella, ruleta de 30 segundos con amigos, escáner de libros y protección contra spoilers. ¡Descárgala gratis!">
+  <meta name="keywords" content="Loggy, diario cultural, cine, peliculas, series, libros, letterboxd alternativo, tv time alternativo, goodreads alternativa, ruleta que ver, escaner isbn, calificar peliculas, retos de lectura">
+  <meta name="author" content="Loggy Team">
+  <meta name="theme-color" content="#09090C">
+  <link rel="icon" type="image/png" href="logo_app.png">
+  <link rel="apple-touch-icon" href="logo_app.png">
 
-  <!-- Open Graph / Social Cards -->
+  <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://loggy.app/">
   <meta property="og:title" content="Loggy — Tu diario cultural de películas, series y libros">
-  <meta property="og:description" content="Letterboxd + TV Time + Goodreads en una sola app. Calificaciones con media estrella, ruleta con amigos y escáner de libros. ¡Descárgala gratis!">
-  <meta property="og:image" content="https://loggy.app/logo_app.png">
-  <meta property="og:locale" content="es_ES">
-  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:description" content="Letterboxd, TV Time y Goodreads unificados en una sola app. Descarga gratis para Android y iOS.">
+  <meta property="og:image" content="assets/store/es/01-device-bottom.png">
 
-  <!-- Twitter Card -->
+  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Loggy — El diario cultural definitivo">
-  <meta name="twitter:description" content="Películas, series y libros en una sola app fluida. Descarga gratis para Android e iOS.">
-  <meta name="twitter:image" content="https://loggy.app/logo_app.png">
+  <meta name="twitter:title" content="Loggy — Tu diario cultural">
+  <meta name="twitter:description" content="Todas tus películas, series y libros en una sola aplicación con sincronización en tiempo real.">
+  <meta name="twitter:image" content="assets/store/es/01-device-bottom.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="logo_app.png">
-
-  <!-- Google Fonts: Plus Jakarta Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- JSON-LD ASO / SoftwareApplication Schema for Search Engines -->
+  <!-- Schema.org JSON-LD for Google App Indexing & Rich Snippets -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Loggy",
     "operatingSystem": "Android, iOS",
-    "applicationCategory": "EntertainmentApplication",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "ratingCount": "1280",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
+    "applicationCategory": "EntertainmentApplication, LifestyleApplication",
     "offers": {
       "@type": "Offer",
       "price": "0",
-      "priceCurrency": "EUR"
+      "priceCurrency": "USD"
     },
-    "description": "Diario cultural todo en uno para películas, series de televisión y libros con calificaciones con media estrella, ruleta de 30 segundos y escáner ISBN.",
-    "screenshot": "https://loggy.app/assets/store/es/01-device-bottom.png",
-    "downloadUrl": "https://play.google.com/store/apps/details?id=com.ccdevelops.loggy",
-    "installUrl": "https://play.google.com/store/apps/details?id=com.ccdevelops.loggy"
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "ratingCount": "1250",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "description": "Diario cultural todo en uno para películas, series y libros con ruleta interactiva de 30 segundos, escáner ISBN y protección contra spoilers.",
+    "screenshot": [
+      "https://loggy.app/assets/store/es/01-device-bottom.png",
+      "https://loggy.app/assets/store/es/02-device-bottom.png",
+      "https://loggy.app/assets/store/es/03-two-devices.png"
+    ]
   }
   </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans (Modern & Clean) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-          },
           colors: {
             dark: {
               950: '#09090C',
@@ -150,6 +143,25 @@
     .floating-phone {
       animation: floatPhone 6s ease-in-out infinite;
     }
+
+    /* Infinite Horizontal Scrolling Carousel for Testimonials */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 45s linear infinite;
+    }
+    .marquee-track:hover, .marquee-track:focus-within {
+      animation-play-state: paused;
+    }
+
+    /* Hide standard details disclosure triangle */
+    details summary::-webkit-details-marker {
+      display: none;
+    }
   </style>
 
   <!-- Supabase JS Client v2 (Optional for Web App Drawer) -->
@@ -178,7 +190,7 @@
           </span>
         </a>
 
-        <!-- Desktop Navigation Links -->
+        <!-- Desktop Navigation Links (Ordered sequentially with page sections) -->
         <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold text-slate-400">
           <a href="#features" class="hover:text-white transition" data-i18n="nav_features">Funciones</a>
           <a href="#compare" class="hover:text-white transition" data-i18n="nav_compare">¿Por qué Loggy?</a>
@@ -190,12 +202,12 @@
         <!-- Right Controls: Language + Web Version Link + Download CTA -->
         <div class="flex items-center gap-2.5 sm:gap-3">
           
-          <!-- Language Selector -->
+          <!-- Language Selector (ES / EN) -->
           <div class="flex items-center bg-dark-850 rounded-xl p-1 border border-dark-700 text-xs font-bold">
-            <button id="btn-lang-es" onclick="setLanguage('es')" class="px-2.5 py-1 rounded-lg transition text-dark-950 bg-lime-brand shadow-sm">
+            <button id="btn-lang-es" class="px-2.5 py-1 rounded-lg transition text-dark-950 bg-lime-brand shadow-sm">
               ES
             </button>
-            <button id="btn-lang-en" onclick="setLanguage('en')" class="px-2.5 py-1 rounded-lg transition text-slate-400 hover:text-white">
+            <button id="btn-lang-en" class="px-2.5 py-1 rounded-lg transition text-slate-400 hover:text-white">
               EN
             </button>
           </div>
@@ -218,7 +230,7 @@
     <!-- ==================== MAIN CONTENT ==================== -->
     <main class="flex-grow">
       
-      <!-- ==================== HERO SECTION (HIGH CONVERSION) ==================== -->
+      <!-- ==================== 1. HERO SECTION (HIGH CONVERSION) ==================== -->
       <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 px-4 sm:px-6 max-w-7xl mx-auto overflow-hidden">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
@@ -334,191 +346,7 @@
 
       </section>
 
-      <!-- ==================== COMPARE SECTION: WHY YOU NEED LOGGY TODAY ==================== -->
-      <section id="compare" class="py-16 md:py-24 bg-dark-900/50 border-y border-dark-800/80 relative">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-          
-          <div class="text-center max-w-3xl mx-auto mb-14">
-            <span class="text-lime-brand font-bold text-xs uppercase tracking-widest block mb-2" data-i18n="compare_badge">
-              ¿Por qué necesitas Loggy hoy?
-            </span>
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4" data-i18n="compare_title">
-              Tu entretenimiento no debería estar dividido en tres apps
-            </h2>
-            <p class="text-sm sm:text-base text-slate-400 leading-relaxed" data-i18n="compare_desc">
-              Mantener listas separadas en tres plataformas lentas es cosa del pasado. Descubre la diferencia de tener toda tu vida cultural en un solo lugar.
-            </p>
-          </div>
-
-          <!-- Side-by-Side Comparison Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            
-            <!-- The Old Way (Frustrating) -->
-            <div class="p-6 sm:p-8 rounded-3xl bg-dark-850/60 border border-red-500/20 shadow-xl flex flex-col justify-between">
-              <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-red-500/10 text-red-400 text-xs font-bold mb-5">
-                  <span>❌</span>
-                  <span data-i18n="card_old_title">La forma antigua (Frustrante)</span>
-                </div>
-                <ul class="space-y-4 text-xs sm:text-sm text-slate-300">
-                  <li class="flex items-start gap-3">
-                    <span class="text-red-400 font-bold">✕</span>
-                    <span data-i18n="card_old_item1">Tener tres aplicaciones distintas ocupando espacio en tu teléfono.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="text-red-400 font-bold">✕</span>
-                    <span data-i18n="card_old_item2">Perder 40 minutos cada noche discutiendo qué película ver en streaming.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="text-red-400 font-bold">✕</span>
-                    <span data-i18n="card_old_item3">Destripes en redes sociales que arruinan el final de tu serie favorita.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="text-red-400 font-bold">✕</span>
-                    <span data-i18n="card_old_item4">Teclear títulos de libros y autores a mano cada vez que compras uno.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="text-red-400 font-bold">✕</span>
-                    <span data-i18n="card_old_item5">Publicidad invasiva y pérdida de datos si no tienes cobertura.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- The Loggy Way (All in One) -->
-            <div class="p-6 sm:p-8 rounded-3xl bg-dark-850 border border-lime-brand/40 shadow-glow-lime flex flex-col justify-between relative overflow-hidden">
-              <div class="absolute -top-12 -right-12 w-48 h-48 bg-lime-brand/10 rounded-full blur-2xl pointer-events-none"></div>
-              <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-lime-brand/20 text-lime-brand text-xs font-bold mb-5 border border-lime-brand/30">
-                  <span>✨</span>
-                  <span data-i18n="card_new_title">La experiencia Loggy (Todo en uno)</span>
-                </div>
-                <ul class="space-y-4 text-xs sm:text-sm text-white font-medium">
-                  <li class="flex items-start gap-3">
-                    <span class="text-lime-brand font-black">✓</span>
-                    <span data-i18n="card_new_item1">Un solo perfil impecable para todas tus películas, series y libros.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="text-lime-brand font-black">✓</span>
-                    <span data-i18n="card_new_item2">La ruleta de 30 segundos: cruza listas con amigos y decidid al instante.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="text-lime-brand font-black">✓</span>
-                    <span data-i18n="card_new_item3">Spoiler Shield activo: reseñas con destripes desenfocadas automáticamente.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="text-lime-brand font-black">✓</span>
-                    <span data-i18n="card_new_item4">Escáner por cámara: apunta al código de barras del libro y listo.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <span class="text-lime-brand font-black">✓</span>
-                    <span data-i18n="card_new_item5">100% Offline first con base de datos nativa de alto rendimiento.</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="mt-8 pt-5 border-t border-dark-700 flex items-center justify-between">
-                <span class="text-xs text-slate-400 font-semibold">¿Listo para dar el salto?</span>
-                <a href="#download" class="text-xs font-bold text-lime-brand hover:underline flex items-center gap-1">
-                  <span>Instalar gratis</span>
-                  <span>→</span>
-                </a>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ==================== REAL APP STORE SCREENSHOTS GALLERY ==================== -->
-      <section id="gallery" class="py-16 md:py-24 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-          
-          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
-            <div>
-              <span class="text-lime-brand font-bold text-xs uppercase tracking-widest block mb-2" data-i18n="gallery_badge">
-                Vistas reales de la app
-              </span>
-              <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="gallery_title">
-                Así se ve la experiencia Loggy en tu mano
-              </h2>
-              <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl" data-i18n="gallery_desc">
-                Explora las 8 pantallas principales diseñadas al milímetro para una experiencia visual exquisita.
-              </p>
-            </div>
-
-            <!-- Platform Switcher (Android / iOS) -->
-            <div class="flex items-center gap-2 bg-dark-900 p-1.5 rounded-2xl border border-dark-800 self-start sm:self-auto">
-              <button id="gallery-tab-android" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-lime-brand text-dark-950 shadow-glow-lime transition" data-i18n="gallery_tab_android">
-                Android
-              </button>
-              <button id="gallery-tab-ios" class="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition" data-i18n="gallery_tab_ios">
-                iPhone (iOS)
-              </button>
-            </div>
-          </div>
-
-          <div class="text-xs text-slate-500 mb-3 flex items-center gap-1.5 font-medium" data-i18n="gallery_scroll_hint">
-            ← Desliza horizontalmente para ver las pantallas →
-          </div>
-
-          <!-- Horizontal Carousel of the 8 Store Presentations -->
-          <div class="flex gap-5 overflow-x-auto pb-8 pt-2 snap-x snap-mandatory no-scrollbar">
-            
-            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
-              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
-                <img id="gallery-img-1" src="assets/store/es/01-device-bottom.png" alt="1. Tu diario cultural" class="w-full h-auto object-cover" loading="lazy">
-              </div>
-            </div>
-
-            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
-              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
-                <img id="gallery-img-2" src="assets/store/es/02-device-bottom.png" alt="2. Catálogo unificado" class="w-full h-auto object-cover" loading="lazy">
-              </div>
-            </div>
-
-            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
-              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
-                <img id="gallery-img-3" src="assets/store/es/03-two-devices.png" alt="3. Ruleta 30 segundos" class="w-full h-auto object-cover" loading="lazy">
-              </div>
-            </div>
-
-            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
-              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
-                <img id="gallery-img-4" src="assets/store/es/04-device-bottom.png" alt="4. Spoiler Shield" class="w-full h-auto object-cover" loading="lazy">
-              </div>
-            </div>
-
-            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
-              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
-                <img id="gallery-img-5" src="assets/store/es/05-device-bottom.png" alt="5. Dónde ver en streaming" class="w-full h-auto object-cover" loading="lazy">
-              </div>
-            </div>
-
-            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
-              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
-                <img id="gallery-img-6" src="assets/store/es/06-device-bottom.png" alt="6. Escáner de libros ISBN" class="w-full h-auto object-cover" loading="lazy">
-              </div>
-            </div>
-
-            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
-              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
-                <img id="gallery-img-7" src="assets/store/es/07-device-bottom.png" alt="7. Estadísticas avanzadas" class="w-full h-auto object-cover" loading="lazy">
-              </div>
-            </div>
-
-            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
-              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
-                <img id="gallery-img-8" src="assets/store/es/08-device-bottom.png" alt="8. Desafíos anuales" class="w-full h-auto object-cover" loading="lazy">
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ==================== CORE UNIQUE FEATURES ==================== -->
+      <!-- ==================== 2. CORE UNIQUE FEATURES ==================== -->
       <section id="features" class="py-16 md:py-24 bg-dark-900/60 border-y border-dark-800/80 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
           
@@ -660,22 +488,221 @@
         </div>
       </section>
 
-      <!-- ==================== TESTIMONIALS / SOCIAL PROOF ==================== -->
-      <section id="testimonials" class="py-16 md:py-24 relative">
+      <!-- ==================== 3. COMPARE SECTION: WHY YOU NEED LOGGY TODAY ==================== -->
+      <section id="compare" class="py-16 md:py-24 bg-dark-900/50 border-b border-dark-800/80 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
           
-          <div class="text-center max-w-2xl mx-auto mb-14">
+          <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="text-lime-brand font-bold text-xs uppercase tracking-widest block mb-2" data-i18n="compare_badge">
+              ¿Por qué necesitas Loggy hoy?
+            </span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4" data-i18n="compare_title">
+              Tu entretenimiento no debería estar dividido en tres apps
+            </h2>
+            <p class="text-sm sm:text-base text-slate-400 leading-relaxed" data-i18n="compare_desc">
+              Mantener listas separadas en tres plataformas lentas es cosa del pasado. Descubre la diferencia de tener toda tu vida cultural en un solo lugar.
+            </p>
+          </div>
+
+          <!-- Side-by-Side Comparison Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            
+            <!-- The Old Way (Frustrating) -->
+            <div class="p-6 sm:p-8 rounded-3xl bg-dark-850/60 border border-red-500/20 shadow-xl flex flex-col justify-between">
+              <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-red-500/10 text-red-400 text-xs font-bold mb-5">
+                  <span>❌</span>
+                  <span data-i18n="card_old_title">La forma antigua (Frustrante)</span>
+                </div>
+                <ul class="space-y-4 text-xs sm:text-sm text-slate-300">
+                  <li class="flex items-start gap-3">
+                    <span class="text-red-400 font-bold">✕</span>
+                    <span data-i18n="card_old_item1">Tener tres aplicaciones distintas ocupando espacio en tu teléfono.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-red-400 font-bold">✕</span>
+                    <span data-i18n="card_old_item2">Perder 40 minutos cada noche discutiendo qué película ver en streaming.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-red-400 font-bold">✕</span>
+                    <span data-i18n="card_old_item3">Destripes en redes sociales que arruinan el final de tu serie favorita.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-red-400 font-bold">✕</span>
+                    <span data-i18n="card_old_item4">Teclear títulos de libros y autores a mano cada vez que compras uno.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-red-400 font-bold">✕</span>
+                    <span data-i18n="card_old_item5">Publicidad invasiva y pérdida de datos si no tienes cobertura.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- The Loggy Way (All in One) -->
+            <div class="p-6 sm:p-8 rounded-3xl bg-dark-850 border border-lime-brand/40 shadow-glow-lime flex flex-col justify-between relative overflow-hidden">
+              <div class="absolute -top-12 -right-12 w-48 h-48 bg-lime-brand/10 rounded-full blur-2xl pointer-events-none"></div>
+              <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-lime-brand/20 text-lime-brand text-xs font-bold mb-5 border border-lime-brand/30">
+                  <span>✨</span>
+                  <span data-i18n="card_new_title">La experiencia Loggy (Todo en uno)</span>
+                </div>
+                <ul class="space-y-4 text-xs sm:text-sm text-white font-medium">
+                  <li class="flex items-start gap-3">
+                    <span class="text-lime-brand font-black">✓</span>
+                    <span data-i18n="card_new_item1">Un solo perfil impecable para todas tus películas, series y libros.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-lime-brand font-black">✓</span>
+                    <span data-i18n="card_new_item2">La ruleta de 30 segundos: cruza listas con amigos y decidid al instante.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-lime-brand font-black">✓</span>
+                    <span data-i18n="card_new_item3">Spoiler Shield activo: reseñas con destripes desenfocadas automáticamente.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-lime-brand font-black">✓</span>
+                    <span data-i18n="card_new_item4">Escáner por cámara: apunta al código de barras del libro y listo.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="text-lime-brand font-black">✓</span>
+                    <span data-i18n="card_new_item5">100% Offline first con base de datos nativa de alto rendimiento.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mt-8 pt-5 border-t border-dark-700 flex items-center justify-between">
+                <span class="text-xs text-slate-400 font-semibold">¿Listo para dar el salto?</span>
+                <a href="#download" class="text-xs font-bold text-lime-brand hover:underline flex items-center gap-1">
+                  <span>Instalar gratis</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== 4. REAL APP STORE SCREENSHOTS GALLERY ==================== -->
+      <section id="gallery" class="py-16 md:py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+            <div>
+              <span class="text-lime-brand font-bold text-xs uppercase tracking-widest block mb-2" data-i18n="gallery_badge">
+                Vistas reales de la app
+              </span>
+              <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="gallery_title">
+                Así se ve la experiencia Loggy en tu mano
+              </h2>
+              <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-xl" data-i18n="gallery_desc">
+                Explora las 8 pantallas principales diseñadas al milímetro para una experiencia visual exquisita.
+              </p>
+            </div>
+
+            <!-- Platform Switcher (Android / iOS) -->
+            <div class="flex items-center gap-2 bg-dark-900 p-1.5 rounded-2xl border border-dark-800 self-start sm:self-auto">
+              <button id="gallery-tab-android" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-lime-brand text-dark-950 shadow-glow-lime transition" data-i18n="gallery_tab_android">
+                Android
+              </button>
+              <button id="gallery-tab-ios" class="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition" data-i18n="gallery_tab_ios">
+                iPhone (iOS)
+              </button>
+            </div>
+          </div>
+
+          <div class="text-xs text-slate-500 mb-3 flex items-center gap-1.5 font-medium" data-i18n="gallery_scroll_hint">
+            ← Desliza horizontalmente para ver las pantallas →
+          </div>
+
+          <!-- Horizontal Carousel of the 8 Store Presentations -->
+          <div class="flex gap-5 overflow-x-auto pb-8 pt-2 snap-x snap-mandatory no-scrollbar">
+            
+            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
+              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+                <img id="gallery-img-1" src="assets/store/es/01-device-bottom.png" alt="1. Tu diario cultural" class="w-full h-auto object-cover" loading="lazy">
+              </div>
+            </div>
+
+            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
+              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+                <img id="gallery-img-2" src="assets/store/es/02-device-bottom.png" alt="2. Catálogo unificado" class="w-full h-auto object-cover" loading="lazy">
+              </div>
+            </div>
+
+            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
+              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+                <img id="gallery-img-3" src="assets/store/es/03-two-devices.png" alt="3. Ruleta 30 segundos" class="w-full h-auto object-cover" loading="lazy">
+              </div>
+            </div>
+
+            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
+              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+                <img id="gallery-img-4" src="assets/store/es/04-device-bottom.png" alt="4. Spoiler Shield" class="w-full h-auto object-cover" loading="lazy">
+              </div>
+            </div>
+
+            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
+              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+                <img id="gallery-img-5" src="assets/store/es/05-device-bottom.png" alt="5. Dónde ver en streaming" class="w-full h-auto object-cover" loading="lazy">
+              </div>
+            </div>
+
+            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
+              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+                <img id="gallery-img-6" src="assets/store/es/06-device-bottom.png" alt="6. Escáner de libros ISBN" class="w-full h-auto object-cover" loading="lazy">
+              </div>
+            </div>
+
+            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
+              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+                <img id="gallery-img-7" src="assets/store/es/07-device-bottom.png" alt="7. Estadísticas avanzadas" class="w-full h-auto object-cover" loading="lazy">
+              </div>
+            </div>
+
+            <div class="flex-shrink-0 w-64 sm:w-76 snap-center group">
+              <div class="rounded-3xl overflow-hidden border border-dark-700 bg-dark-850 shadow-2xl transition-transform duration-300 group-hover:-translate-y-2 group-hover:border-lime-brand/50">
+                <img id="gallery-img-8" src="assets/store/es/08-device-bottom.png" alt="8. Desafíos anuales" class="w-full h-auto object-cover" loading="lazy">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ==================== 5. TESTIMONIALS / SOCIAL PROOF (AUTO-SCROLLING MARQUEE) ==================== -->
+      <section id="testimonials" class="py-16 md:py-24 relative overflow-hidden bg-dark-900/40 border-y border-dark-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-12">
+          
+          <div class="text-center max-w-2xl mx-auto">
             <span class="text-lime-brand font-bold text-xs uppercase tracking-widest block mb-2" data-i18n="testimonials_badge">
               Lo que dice la comunidad
             </span>
             <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight" data-i18n="testimonials_title">
               Amada por más de 1.000 cinéfilos y lectores
             </h2>
+            <p class="text-xs sm:text-sm text-slate-400 mt-2" data-i18n="testimonials_desc">
+              Descubre cómo Loggy ha transformado la manera de registrar y compartir la cultura para cientos de apasionados.
+            </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        </div>
+
+        <!-- Marquee Auto-Scrolling Carousel Container -->
+        <div class="relative w-full overflow-hidden py-4">
+          <!-- Gradient Side Fade Masks -->
+          <div class="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-32 bg-gradient-to-r from-dark-950 to-transparent z-10"></div>
+          <div class="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-32 bg-gradient-to-l from-dark-950 to-transparent z-10"></div>
+
+          <!-- Seamless Loop Track (Set 1 + Set 2) -->
+          <div class="marquee-track flex gap-6 px-4">
             
-            <div class="p-6 rounded-3xl bg-dark-900 border border-dark-800 flex flex-col justify-between">
+            <!-- ====== SET 1 (8 Reviews) ====== -->
+
+            <!-- Review 1: Carlos Méndez -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition">
               <div>
                 <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
                   <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -685,17 +712,18 @@
                 </p>
               </div>
               <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
-                <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-500 flex items-center justify-center text-xs font-bold text-white">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-500 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
                   CM
                 </div>
                 <div>
                   <span class="block text-xs font-bold text-white" data-i18n="test_1_author">Carlos Méndez · Cinéfilo y seriéfilo</span>
-                  <span class="block text-[11px] text-slate-500">Madrid</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_1_location">Madrid</span>
                 </div>
               </div>
             </div>
 
-            <div class="p-6 rounded-3xl bg-dark-900 border border-dark-800 flex flex-col justify-between">
+            <!-- Review 2: Elena Rivas -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition">
               <div>
                 <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
                   <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -705,17 +733,18 @@
                 </p>
               </div>
               <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
-                <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-amber-500 to-red-500 flex items-center justify-center text-xs font-bold text-white">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-red-500 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
                   ER
                 </div>
                 <div>
                   <span class="block text-xs font-bold text-white" data-i18n="test_2_author">Elena Rivas · Club de lectura</span>
-                  <span class="block text-[11px] text-slate-500">Barcelona</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_2_location">Barcelona</span>
                 </div>
               </div>
             </div>
 
-            <div class="p-6 rounded-3xl bg-dark-900 border border-dark-800 flex flex-col justify-between">
+            <!-- Review 3: Marcos S. -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition">
               <div>
                 <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
                   <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -725,23 +754,303 @@
                 </p>
               </div>
               <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
-                <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center text-xs font-bold text-white">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
                   MS
                 </div>
                 <div>
                   <span class="block text-xs font-bold text-white" data-i18n="test_3_author">Marcos S. · Aficionado al anime y sci-fi</span>
-                  <span class="block text-[11px] text-slate-500">Valencia</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_3_location">Valencia</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 4: Laura Gómez -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 italic" data-i18n="test_4_quote">
+                  «Las calificaciones con media estrella y las estadísticas anuales desglosadas por director y autor son justo lo que echaba en falta en otras apps.»
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-rose-500 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
+                  LG
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white" data-i18n="test_4_author">Laura Gómez · Crítica literaria aficionada</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_4_location">Sevilla</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 5: David Ferrer -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 italic" data-i18n="test_5_quote">
+                  «Saber exactamente en qué plataforma de streaming está disponible cada película antes de buscar ahorra un tiempo infinito cada fin de semana.»
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
+                  DF
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white" data-i18n="test_5_author">David Ferrer · Maratonista de series</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_5_location">Bilbao</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 6: Sofía Benítez -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 italic" data-i18n="test_6_quote">
+                  «Viajo mucho y poder registrar mis lecturas y películas en el avión 100% offline sin perder nada es clave. Al aterrizar se sincroniza al instante.»
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-600 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
+                  SB
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white" data-i18n="test_6_author">Sofía Benítez · Lectora empedernida</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_6_location">Buenos Aires</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 7: Javier Morales -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 italic" data-i18n="test_7_quote">
+                  «Los retos anuales unificados de libros, películas y series te motivan muchísimo. Ver el progreso en los tres círculos da una satisfacción enorme.»
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-lime-500 to-emerald-600 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
+                  JM
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white" data-i18n="test_7_author">Javier Morales · Creador cultural</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_7_location">Ciudad de México</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Review 8: Marta Vidal -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 italic" data-i18n="test_8_quote">
+                  «La app es rapidísima y la interfaz limpia y oscura no te satura con publicidad invasiva. Una delicia técnica y visual hecha con Compose.»
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-fuchsia-500 to-purple-600 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
+                  MV
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white" data-i18n="test_8_author">Marta Vidal · Diseñadora de producto</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_8_location">Zaragoza</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- ====== SET 2 (DUPLICATE FOR SEAMLESS 100% INFINITE LOOP) ====== -->
+
+            <!-- Duplicate Review 1 -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition" aria-hidden="true">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 italic" data-i18n="test_1_quote">
+                  «Loggy ha sustituido por completo a Letterboxd y TV Time en mi teléfono. La ruleta de 30 segundos nos salvó las noches de cine con mi pareja.»
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-500 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
+                  CM
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white" data-i18n="test_1_author">Carlos Méndez · Cinéfilo y seriéfilo</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_1_location">Madrid</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Duplicate Review 2 -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition" aria-hidden="true">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 italic" data-i18n="test_2_quote">
+                  «Poder escanear códigos de barras de libros en la librería con la cámara y tener mis lecturas junto a mis películas favoritas es una maravilla.»
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-red-500 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
+                  ER
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white" data-i18n="test_2_author">Elena Rivas · Club de lectura</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_2_location">Barcelona</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Duplicate Review 3 -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition" aria-hidden="true">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 italic" data-i18n="test_3_quote">
+                  «El filtro contra spoilers es una genialidad. Por fin puedo leer reseñas de la comunidad sin miedo a que me destripen el final de temporada.»
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
+                  MS
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white" data-i18n="test_3_author">Marcos S. · Aficionado al anime y sci-fi</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_3_location">Valencia</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Duplicate Review 4 -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition" aria-hidden="true">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 italic" data-i18n="test_4_quote">
+                  «Las calificaciones con media estrella y las estadísticas anuales desglosadas por director y autor son justo lo que echaba en falta en otras apps.»
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-rose-500 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
+                  LG
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white" data-i18n="test_4_author">Laura Gómez · Crítica literaria aficionada</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_4_location">Sevilla</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Duplicate Review 5 -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition" aria-hidden="true">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 italic" data-i18n="test_5_quote">
+                  «Saber exactamente en qué plataforma de streaming está disponible cada película antes de buscar ahorra un tiempo infinito cada fin de semana.»
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
+                  DF
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white" data-i18n="test_5_author">David Ferrer · Maratonista de series</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_5_location">Bilbao</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Duplicate Review 6 -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition" aria-hidden="true">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 italic" data-i18n="test_6_quote">
+                  «Viajo mucho y poder registrar mis lecturas y películas en el avión 100% offline sin perder nada es clave. Al aterrizar se sincroniza al instante.»
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-600 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
+                  SB
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white" data-i18n="test_6_author">Sofía Benítez · Lectora empedernida</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_6_location">Buenos Aires</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Duplicate Review 7 -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition" aria-hidden="true">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 italic" data-i18n="test_7_quote">
+                  «Los retos anuales unificados de libros, películas y series te motivan muchísimo. Ver el progreso en los tres círculos da una satisfacción enorme.»
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-lime-500 to-emerald-600 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
+                  JM
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white" data-i18n="test_7_author">Javier Morales · Creador cultural</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_7_location">Ciudad de México</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Duplicate Review 8 -->
+            <div class="w-80 sm:w-96 flex-shrink-0 p-6 rounded-3xl bg-dark-850 border border-dark-800 shadow-xl flex flex-col justify-between hover:border-lime-brand/40 transition" aria-hidden="true">
+              <div>
+                <div class="flex items-center gap-1 text-amber-400 text-sm mb-4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6 italic" data-i18n="test_8_quote">
+                  «La app es rapidísima y la interfaz limpia y oscura no te satura con publicidad invasiva. Una delicia técnica y visual hecha con Compose.»
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 border-t border-dark-800">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-fuchsia-500 to-purple-600 flex items-center justify-center text-xs font-extrabold text-white shadow-md">
+                  MV
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-white" data-i18n="test_8_author">Marta Vidal · Diseñadora de producto</span>
+                  <span class="block text-[11px] text-slate-500" data-i18n="test_8_location">Zaragoza</span>
                 </div>
               </div>
             </div>
 
           </div>
+        </div>
 
+        <div class="text-center mt-6">
+          <span class="text-xs text-slate-500 font-medium" data-i18n="testimonials_hint">
+            Pasa el cursor o mantén pulsado para pausar el carrusel
+          </span>
         </div>
       </section>
 
-      <!-- ==================== FAQ ACCORDION ==================== -->
-      <section id="faq" class="py-16 md:py-20 bg-dark-900/40 border-y border-dark-800/80 relative">
+      <!-- ==================== 6. FAQ ACCORDION ==================== -->
+      <section id="faq" class="py-16 md:py-20 bg-dark-900/40 border-b border-dark-800/80 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6">
           
           <div class="text-center max-w-2xl mx-auto mb-12">
@@ -753,54 +1062,105 @@
             </h2>
           </div>
 
-          <div class="space-y-3.5">
+          <div class="space-y-3.5" id="faq-accordion-container">
             
-            <div class="faq-item p-4 sm:p-5 rounded-2xl bg-dark-850 border border-dark-800">
-              <button class="faq-toggle w-full flex items-center justify-between gap-4 text-left">
-                <span class="text-sm font-bold text-white" data-i18n="faq_q1">¿Loggy es completamente gratuita?</span>
-                <svg class="faq-icon w-4 h-4 text-slate-400 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-              </button>
-              <div class="faq-answer hidden mt-3 pt-3 border-t border-dark-800 text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="faq_a1">
-                Sí, puedes descargar Loggy y registrar todas tus películas, series y libros sin pagar absolutamente nada. Ofrecemos una versión PRO opcional para quienes desean apoyar el desarrollo y desbloquear estadísticas avanzadas.
+            <!-- FAQ 1 -->
+            <details class="faq-item group p-4 sm:p-5 rounded-2xl bg-dark-850 border border-dark-800 hover:border-dark-700 transition">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none select-none">
+                <span class="text-sm font-bold text-white group-hover:text-lime-brand transition" data-i18n="faq_q1">¿Loggy es completamente gratuita?</span>
+                <span class="p-1.5 rounded-lg bg-dark-800 text-slate-400 group-hover:text-white transition flex-shrink-0">
+                  <svg class="w-4 h-4 transform transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </span>
+              </summary>
+              <div class="mt-3.5 pt-3.5 border-t border-dark-800 text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="faq_a1">
+                Sí, puedes descargar Loggy y registrar todas tus películas, series y libros sin pagar absolutamente nada. La versión gratuita incluye registro ilimitado, calificaciones con media estrella (de 0.5 a 5.0), la ruleta de 30 segundos con amigos y el escáner de libros por cámara. Disponemos de una suscripción PRO opcional para quienes desean apoyar el proyecto, eliminar anuncios y acceder a analíticas avanzadas de hábitos culturales.
               </div>
-            </div>
+            </details>
 
-            <div class="faq-item p-4 sm:p-5 rounded-2xl bg-dark-850 border border-dark-800">
-              <button class="faq-toggle w-full flex items-center justify-between gap-4 text-left">
-                <span class="text-sm font-bold text-white" data-i18n="faq_q2">¿Puedo acceder a mis datos desde el ordenador?</span>
-                <svg class="faq-icon w-4 h-4 text-slate-400 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-              </button>
-              <div class="faq-answer hidden mt-3 pt-3 border-t border-dark-800 text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="faq_a2">
-                ¡Por supuesto! Tu cuenta se sincroniza en tiempo real en la nube, por lo que puedes abrir la versión web de Loggy en cualquier navegador para ver o agregar obras a tu diario.
+            <!-- FAQ 2 -->
+            <details class="faq-item group p-4 sm:p-5 rounded-2xl bg-dark-850 border border-dark-800 hover:border-dark-700 transition">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none select-none">
+                <span class="text-sm font-bold text-white group-hover:text-lime-brand transition" data-i18n="faq_q2">¿Puedo importar mis datos desde Letterboxd, Goodreads o TV Time?</span>
+                <span class="p-1.5 rounded-lg bg-dark-800 text-slate-400 group-hover:text-white transition flex-shrink-0">
+                  <svg class="w-4 h-4 transform transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </span>
+              </summary>
+              <div class="mt-3.5 pt-3.5 border-t border-dark-800 text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="faq_a2">
+                ¡Sí! Loggy incluye soporte para importar tus archivos CSV exportados de Letterboxd, Goodreads y TV Time. No perderás ni una sola reseña, fecha de visualización o libro leído al mudarte a Loggy; todo tu historial se preserva intacto.
               </div>
-            </div>
+            </details>
 
-            <div class="faq-item p-4 sm:p-5 rounded-2xl bg-dark-850 border border-dark-800">
-              <button class="faq-toggle w-full flex items-center justify-between gap-4 text-left">
-                <span class="text-sm font-bold text-white" data-i18n="faq_q3">¿Qué diferencia a Loggy de Letterboxd o TV Time?</span>
-                <svg class="faq-icon w-4 h-4 text-slate-400 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-              </button>
-              <div class="faq-answer hidden mt-3 pt-3 border-t border-dark-800 text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="faq_a3">
-                Loggy une los tres mundos (cine, series y libros) en una sola aplicación con herramientas exclusivas como la ruleta de 30 segundos para amigos, el escáner de códigos de barras ISBN y protección activa contra spoilers.
+            <!-- FAQ 3 -->
+            <details class="faq-item group p-4 sm:p-5 rounded-2xl bg-dark-850 border border-dark-800 hover:border-dark-700 transition">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none select-none">
+                <span class="text-sm font-bold text-white group-hover:text-lime-brand transition" data-i18n="faq_q3">¿Cómo funciona la ruleta de 30 segundos con amigos?</span>
+                <span class="p-1.5 rounded-lg bg-dark-800 text-slate-400 group-hover:text-white transition flex-shrink-0">
+                  <svg class="w-4 h-4 transform transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </span>
+              </summary>
+              <div class="mt-3.5 pt-3.5 border-t border-dark-800 text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="faq_a3">
+                Conecta con tu pareja o amigos en Loggy. La app compara automáticamente vuestras listas de pendientes para encontrar qué películas o series tenéis en común y os apetece ver a ambos. Al pulsar el botón, la ruleta selecciona un título al azar de vuestra coincidencia en menos de 30 segundos, eliminando las discusiones eternas en el sofá.
               </div>
-            </div>
+            </details>
 
-            <div class="faq-item p-4 sm:p-5 rounded-2xl bg-dark-850 border border-dark-800">
-              <button class="faq-toggle w-full flex items-center justify-between gap-4 text-left">
-                <span class="text-sm font-bold text-white" data-i18n="faq_q4">¿Funciona sin conexión a internet?</span>
-                <svg class="faq-icon w-4 h-4 text-slate-400 transition-transform flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-              </button>
-              <div class="faq-answer hidden mt-3 pt-3 border-t border-dark-800 text-xs sm:text-sm text-slate-400 leading-relaxed" data-i18n="faq_a4">
-                Sí. Loggy está construida con arquitectura 'offline first', lo que significa que puedes consultar tu biblioteca y guardar reseñas sin cobertura (en aviones o metro); se sincronizará automáticamente al volver a conectar.
+            <!-- FAQ 4 -->
+            <details class="faq-item group p-4 sm:p-5 rounded-2xl bg-dark-850 border border-dark-800 hover:border-dark-700 transition">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none select-none">
+                <span class="text-sm font-bold text-white group-hover:text-lime-brand transition" data-i18n="faq_q4">¿Qué es el Spoiler Shield y cómo protege mis series y libros?</span>
+                <span class="p-1.5 rounded-lg bg-dark-800 text-slate-400 group-hover:text-white transition flex-shrink-0">
+                  <svg class="w-4 h-4 transform transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </span>
+              </summary>
+              <div class="mt-3.5 pt-3.5 border-t border-dark-800 text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="faq_a4">
+                El Spoiler Shield es un sistema de protección comunitaria que analiza y detecta advertencias de destripes en opiniones. Cualquier reseña que contenga información sobre finales o giros argumentales se muestra desenfocada y con una etiqueta de aviso. Solo se muestra el texto completo si decides pulsar deliberadamente para revelarlo.
               </div>
-            </div>
+            </details>
+
+            <!-- FAQ 5 -->
+            <details class="faq-item group p-4 sm:p-5 rounded-2xl bg-dark-850 border border-dark-800 hover:border-dark-700 transition">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none select-none">
+                <span class="text-sm font-bold text-white group-hover:text-lime-brand transition" data-i18n="faq_q5">¿Puedo ver dónde ver una película o serie en streaming según mi país?</span>
+                <span class="p-1.5 rounded-lg bg-dark-800 text-slate-400 group-hover:text-white transition flex-shrink-0">
+                  <svg class="w-4 h-4 transform transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </span>
+              </summary>
+              <div class="mt-3.5 pt-3.5 border-t border-dark-800 text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="faq_a5">
+                Sí. Gracias a la integración con TMDb y proveedores oficiales de streaming, cada ficha de película o serie te muestra los enlaces y disponibilidad directa en plataformas como Netflix, Prime Video, Disney+, Max, Filmin o Apple TV adaptadas a tu país de residencia.
+              </div>
+            </details>
+
+            <!-- FAQ 6 -->
+            <details class="faq-item group p-4 sm:p-5 rounded-2xl bg-dark-850 border border-dark-800 hover:border-dark-700 transition">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none select-none">
+                <span class="text-sm font-bold text-white group-hover:text-lime-brand transition" data-i18n="faq_q6">¿Funciona sin conexión a internet (modo offline)?</span>
+                <span class="p-1.5 rounded-lg bg-dark-800 text-slate-400 group-hover:text-white transition flex-shrink-0">
+                  <svg class="w-4 h-4 transform transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </span>
+              </summary>
+              <div class="mt-3.5 pt-3.5 border-t border-dark-800 text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="faq_a6">
+                Sí, al 100%. Loggy utiliza una arquitectura nativa 'offline-first' con Room SQLite. Puedes calificar películas, redactar reseñas o registrar lecturas en un vuelo o en el metro sin cobertura. Tan pronto como tu dispositivo recupere conexión, todos los cambios se sincronizarán con la nube de forma invisible.
+              </div>
+            </details>
+
+            <!-- FAQ 7 -->
+            <details class="faq-item group p-4 sm:p-5 rounded-2xl bg-dark-850 border border-dark-800 hover:border-dark-700 transition">
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none select-none">
+                <span class="text-sm font-bold text-white group-hover:text-lime-brand transition" data-i18n="faq_q7">¿Puedo consultar mi biblioteca desde el ordenador o navegador web?</span>
+                <span class="p-1.5 rounded-lg bg-dark-800 text-slate-400 group-hover:text-white transition flex-shrink-0">
+                  <svg class="w-4 h-4 transform transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </span>
+              </summary>
+              <div class="mt-3.5 pt-3.5 border-t border-dark-800 text-xs sm:text-sm text-slate-300 leading-relaxed" data-i18n="faq_a7">
+                ¡Por supuesto! Desde esta misma página web puedes abrir la 'Versión web' en la barra superior. Inicia sesión con la misma cuenta de Loggy de tu móvil y podrás ver tu biblioteca completa, consultar notas y calificar obras desde tu portátil o equipo de sobremesa.
+              </div>
+            </details>
 
           </div>
 
         </div>
       </section>
 
-      <!-- ==================== FINAL CALL TO ACTION (DUAL DOWNLOAD BUTTONS) ==================== -->
+      <!-- ==================== 7. FINAL CALL TO ACTION (DUAL DOWNLOAD BUTTONS) ==================== -->
       <section id="download" class="py-20 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6">
           <div class="rounded-3xl bg-gradient-to-b from-dark-850 to-dark-900 border border-lime-brand/30 p-8 sm:p-14 text-center relative overflow-hidden shadow-2xl">
@@ -867,8 +1227,7 @@
           <span data-i18n="footer_rights">&copy; 2026 Loggy. Todos los derechos reservados.</span>
         </div>
         <div class="flex items-center gap-6">
-          <span data-i18n="footer_love">Hecho con amor para amantes del cine, las series y la literatura.</span>
-          <a href="#" class="text-slate-400 hover:text-lime-brand transition">Volver arriba ↑</a>
+          <a href="#" class="text-slate-400 hover:text-lime-brand transition" data-i18n="footer_back_top">Volver arriba ↑</a>
         </div>
       </div>
     </footer>
@@ -920,7 +1279,7 @@
     </div>
   </div>
 
-  <!-- Main Engine Script -->
-  <script src="app.js"></script>
+  <!-- Main Engine Script with Cache Buster -->
+  <script src="app.js?v=2"></script>
 </body>
 </html>
